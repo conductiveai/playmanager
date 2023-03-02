@@ -103,6 +103,7 @@ forge flatten --output src/PlayManager.flattened.sol src/PlayManager.sol
 ```
 
 Output:
+
 ![image](https://github.com/conductiveai/playmanager/blob/main/github/flattened.png?raw=true)
 
 
