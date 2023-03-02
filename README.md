@@ -156,7 +156,7 @@ forge anvil start
 Your local RPC node will be running on `http://127.0.0.1:8545`
 
 # 🧐 Verification on Block Explorer
-You can als easily verify your contract via CLI by running:
+You can also easily verify your contract via CLI by running:
 ```bash
 forge verify-contract --chain-id 1 --num-of-optimizations 200 --constructor-args (cast abi-encode "constructor(string,string)" "SuperGigaChad" "3411297c-57d8-4704-8ca1-39935ebc92c9" --compiler-version v0.8.0+commit.c7dfd78e 0xContractAddressHere src/PlayManager.flattened.sol:PlayManager <your-blockexplorer-key>
 ```
