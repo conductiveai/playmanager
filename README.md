@@ -15,8 +15,8 @@
 
 ```
 # 🔍 Overview
-Play Manager is the smart contract companion to (Conductive Instant Play)[https://conductive.ai/instantplay].
-(Conductive)[https://conductive.ai] Instant Play is an SDK that enables games to intuitively persist in-game events to multiple blockchains without the overhead, integration and budget required in web3. No gas, no wallets, no contracts -- it just works.
+Play Manager is the smart contract companion to [Conductive Instant Play](https://conductive.ai/instantplay).
+[Conductive](https://conductive.ai) Instant Play is an SDK that enables games to intuitively persist in-game events to multiple blockchains without the overhead, integration and budget required in web3. No gas, no wallets, no contracts -- it just works.
 
 
 # 📁 Directory structure
@@ -51,7 +51,7 @@ Functionality is straight-forward for v1.0.0:
 - ⚙️ Configurable, upgradeable and pauseable via master wallet
 
 # 🏁 Getting started
-This repository is setup to use (Foundry)[https://book.getfoundry.sh/getting-started/first-steps] for development, testing and deployment. Foundry is a fast and lightweight toolchain vs. Hardhat / Brownie / etc. created by the gigachads at (Paradigm)[https://paradigm.xyz/].
+This repository is setup to use [Foundry](https://book.getfoundry.sh/getting-started/first-steps) for development, testing and deployment. Foundry is a fast and lightweight toolchain vs. Hardhat / Brownie / etc. created by the gigachads at [Paradigm](https://paradigm.xyz/).
 
     1.  Download Foundry install script
     ```
