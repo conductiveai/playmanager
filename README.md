@@ -19,7 +19,7 @@ Play Manager is the smart contract companion to (Conductive Instant Play)[https:
 (Conductive)[https://conductive.ai] Instant Play is an SDK that enables games to intuitively persist in-game events to multiple blockchains without the overhead, integration and budget required in web3. No gas, no wallets, no contracts -- it just works.
 
 
-# Directory structure
+# 📁 Directory structure
 ```
     .
     ├── lib - library imports
@@ -37,7 +37,7 @@ Play Manager is the smart contract companion to (Conductive Instant Play)[https:
     └── slither.config.json - remappings for slither
 ```
 
-# Contract
+# 📝 Contract
 Functionality is straight-forward for v1.0.0:
 - 🎮 Basic game event logging
   - `createAccount(uint256 accountType)` - create a new account
@@ -50,7 +50,7 @@ Functionality is straight-forward for v1.0.0:
 - 🔐 Secured via OpenZeppelin libraries
 - ⚙️ Configurable, upgradeable and pauseable via master wallet
 
-# Setup
+# 🏁 Getting started
 This repository is setup to use (Foundry)[https://book.getfoundry.sh/getting-started/first-steps] for development, testing and deployment. Foundry is a fast and lightweight toolchain vs. Hardhat / Brownie / etc. created by the gigachads at (Paradigm)[https://paradigm.xyz/].
 
     1.  Download Foundry install script
@@ -78,7 +78,7 @@ git clone https://github.com/conductiveai/playmanager.git
 cd playmanager
 ```
 
-# Run tests
+# 🧪 Run tests
 To run tests in the `tests` directory, run:
 ```
 forge test
@@ -86,7 +86,7 @@ forge test
 Should see 5 tests pass:
 ![image](https://raw.githubusercontent.com/conductiveai/playmanager/main/github/github/tests.png)
 
-# Building and deploying
+# 🏗️ Building and deploying
 
 ### Compiling
 
@@ -150,13 +150,13 @@ forge anvil start
 
 Your local RPC node will be running on `http://127.0.0.1:8545`
 
-# Verification on Block Explorer
+# 🧐 Verification on Block Explorer
 You can als easily verify your contract via CLI by running:
 ```bash
 forge verify-contract --chain-id 1 --num-of-optimizations 200 --constructor-args (cast abi-encode "constructor(string,string)" "SuperGigaChad" "3411297c-57d8-4704-8ca1-39935ebc92c9" --compiler-version v0.8.0+commit.c7dfd78e 0xContractAddressHere src/PlayManager.flattened.sol:PlayManager <your-blockexplorer-key>
 ```
 
-# Upgrading the Proxy Contract
+# 🌟 Upgrading the Proxy Contract
 
 PlayManager implements the UUPSUpgradeable library from OpenZeppelin. This allows the contract to be upgraded via the function `_upgradeToAndCall(newImplementation, data);` which is called by the `upgradeToAndCall` function in the proxy contract.
 
@@ -166,7 +166,7 @@ Example:
 ![image](https://raw.githubusercontent.com/conductiveai/playmanager/main/github/github/upgrade.png)
 
 
-# Security
+# 🔐 Security
 - [Slither](https://www.alchemy.com/dapps/slither) is an [open-source contract security framework](https://github.com/crytic/slither) written in Python. It runs a suite of vulnerability detectors and prints visual information about contract detail. This is the output of running Slither on the PlayManager contract:
 
 ### Install Slither
@@ -185,12 +185,13 @@ Output running Slither on the PlayManager contract:
 - ![image](https://raw.githubusercontent.com/conductiveai/playmanager/main/github/github/slither.png)
 
 
-# TODO
+# ☑️ TODO
 - [ ] Multi-party auth (client, master wallet, etc.)
 - [ ] Client contract inheritance for ERC20, ERC721, and ERC1155
 - [ ] SDK CRUD primitives for ERC20, ERC721, and ERC1155
 
-# References
+# 🗃️ References
 - [Foundry docs](https://book.getfoundry.sh/getting-started/first-steps)
 - [Foundry tutorial](https://jamesbachini.com/foundry-tutorial/)
+- [Foundry Walkthrough](https://coinsbench.com/demystifying-foundry-9d589f03730d)
 - [UUPS proxies](https://blog.logrocket.com/using-uups-proxy-pattern-upgrade-smart-contracts/)
