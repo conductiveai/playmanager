@@ -84,7 +84,7 @@ To run tests in the `tests` directory, run:
 forge test
 ```
 Should see 5 tests pass:
-![image](https://raw.githubusercontent.com/conductiveai/playmanager/main/github/github/tests.png)
+![image](https://github.com/conductiveai/playmanager/blob/main/github/tests.png?raw=true)
 
 # 🏗️ Building and deploying
 
@@ -103,7 +103,7 @@ forge flatten --output src/PlayManager.flattened.sol src/PlayManager.sol
 ```
 
 Output:
-![image](https://raw.githubusercontent.com/conductiveai/playmanager/main/github/github/flattened.png)
+![image](https://github.com/conductiveai/playmanager/blob/main/github/flattened.png?raw=true)
 
 
 The flatten command will concatenate all the imports into a single file. This is useful for running static analysis tools like Slither.
@@ -146,7 +146,7 @@ Anvil is a local testnet the comes with Foundry CLI.
 ```bash
 forge anvil start
 ```
-![image](https://raw.githubusercontent.com/conductiveai/playmanager/main/github/github/anvil.png)
+![image](https://github.com/conductiveai/playmanager/blob/main/github/anvil.png?raw=true)
 
 Your local RPC node will be running on `http://127.0.0.1:8545`
 
@@ -163,7 +163,7 @@ PlayManager implements the UUPSUpgradeable library from OpenZeppelin. This allow
 You can find an [implementation of this here](https://github.com/jordaniza/OZ-Upgradeable-Foundry/blob/main/script/DeployUUPS.s.sol).
 
 Example:
-![image](https://raw.githubusercontent.com/conductiveai/playmanager/main/github/github/upgrade.png)
+![image](https://github.com/conductiveai/playmanager/blob/main/github/upgrade.png?raw=true)
 
 
 # 🔐 Security
@@ -182,7 +182,7 @@ solc-select use 0.8.13
 slither src/PlayManager.flatten.sol
 ```
 Output running Slither on the PlayManager contract:
-- ![image](https://raw.githubusercontent.com/conductiveai/playmanager/main/github/github/slither.png)
+- ![image](https://github.com/conductiveai/playmanager/blob/main/github/slither.png?raw=true)
 
 
 # ☑️ TODO
