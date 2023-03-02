@@ -1,5 +1,4 @@
 ![banner](https://github.com/conductiveai/playmanager/blob/main/github/banner.png?raw=true)
-# 🎮 PlayManager v1.0.0
 ```
  _______  __                   __       __                                                       
 |       \|  \                 |  \     /  \                                                      
@@ -15,7 +14,7 @@
                        \▓▓▓▓▓▓                                         \▓▓▓▓▓▓                   
 
 ```
-# 🔍 Overview
+# 🎮 PlayManager v1.0.0
 Play Manager is the smart contract companion to [Conductive Instant Play](https://conductive.ai/instantplay).
 [Conductive](https://conductive.ai) Instant Play is an SDK that enables games to intuitively persist in-game events to multiple blockchains without the overhead, integration and budget required in web3. No gas, no wallets, no contracts -- it just works.
 
