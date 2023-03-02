@@ -1,0 +1,5 @@
+TestPlayManager:testCreateAccount() (gas: 13425)
+TestPlayManager:testDailyLogin() (gas: 19919)
+TestPlayManager:testInitialize() (gas: 110147)
+TestPlayManager:testPauseAndUnpause() (gas: 31650)
+TestPlayManager:testStartSession() (gas: 13414)

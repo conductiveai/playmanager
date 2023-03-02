@@ -22,18 +22,19 @@ Learn more:     https://conductive.ai/instantplay
 Documentation:  https://docs.conductive.ai
  */
 
+import "openzeppelin-contracts-upgradeable/proxy/utils/Initializable.sol";
+import "openzeppelin-contracts-upgradeable/proxy/utils/UUPSUpgradeable.sol";
 import "openzeppelin-contracts-upgradeable/access/OwnableUpgradeable.sol";
 import "openzeppelin-contracts-upgradeable/security/PausableUpgradeable.sol";
-import "openzeppelin-contracts-upgradeable/proxy/utils/Initializable.sol";
-import "openzeppelin-contracts-upgradeable/metatx/ERC2771ContextUpgradeable.sol";
 
-
-contract PlayManager is Initializable, OwnableUpgradeable, PausableUpgradeable, ERC2771ContextUpgradeable{
+contract PlayManager is Initializable, PausableUpgradeable, UUPSUpgradeable, OwnableUpgradeable {
 
     // Contract variables
-    bytes32 private AppName;
-    bytes32 private AppID;
-    bytes32 private AppVersion = "1.0.0";
+    string private appName;
+    string private appID;
+
+    // Const contract version
+    string private constant APP_VERSION = "1.0.0";
 
     // Event struct definitions
     struct AccountEvent {
@@ -57,61 +58,75 @@ contract PlayManager is Initializable, OwnableUpgradeable, PausableUpgradeable, 
     event AccountCreated(AccountEvent accountEvent);
     event SessionStarted(SessionEvent sessionEvent);
     event DailyLogin(LoginEvent loginEvent);
-
     // Proxy contract initializer
-    function initialize(address trustedForwarder, string memory _appName, string memory _appID) initializer public {
+    function initialize(string memory _appName, string memory _appID) initializer public {
 
         __Ownable_init();
         __Pausable_init();
-        __ERC2771Context_init(trustedForwarder);
+        __UUPSUpgradeable_init();
 
-        AppName = _appName;
-        AppID = _appID;
+        appName = _appName;
+        appID = _appID;
+
+        //set the deployer as owner
+        transferOwnership(_msgSender());
 
     }
 
     /** ========== SETTERS ========== **/
-    function setAppName(bytes32 memory _appName) external onlyOwner {
-        AppName = _appName;
+    function setAppName(string memory _appName) external onlyOwner {
+        appName = _appName;
     }
 
-    function setAppID(bytes32 memory _appID) external onlyOwner {
-        AppID = _appID;
+    function setAppID(string memory _appID) external onlyOwner {
+        appID = _appID;
     }
 
     /** ========== GETTERS ========== **/
 
     function getAppName() external view returns (string memory) {
-        return string(abi.encodePacked(AppName));
+        return string(abi.encodePacked(appName));
     }
 
     function getAppID() external view returns (string memory) {
-        return string(abi.encodePacked(AppID));
+        return string(abi.encodePacked(appID));
     }
 
-    function getAppVersion() external view returns (string memory) {
-        return string(abi.encodePacked(AppVersion));
+    function getAppVersion() external pure returns (string memory) {
+        return string(abi.encodePacked(APP_VERSION));
+    }
+
+    function getOwner() external view returns (address) {
+        return owner();
     }
 
     /** ========== MAIN APP FUNCTIONS ========== **/
 
     function createAccount(uint256 accountType) external whenNotPaused {
 
-        emit AccountCreated(_msgSender(), accountType);
+        // create AccountEvent
+        AccountEvent memory accountEvent = AccountEvent(_msgSender(), accountType);
+        emit AccountCreated(accountEvent);
     }
 
     function startSession(uint256 sessionType) external whenNotPaused {
+        SessionEvent memory sessionEvent = SessionEvent(_msgSender(), sessionType);
 
         emit SessionStarted(sessionEvent);
     }
 
     function dailyLogin(uint256 sessionType, string calldata sessionId, string calldata userId) external whenNotPaused {
 
+        LoginEvent memory loginEvent = LoginEvent(_msgSender(), sessionType, sessionId, userId);
         emit DailyLogin(loginEvent);
     }
 
     /** ========== ADMIN FUNCTIONS ========== **/
 
+    // Proxy contract upgrade function
+    function _authorizeUpgrade(address) internal override onlyOwner {}
+
+    // Pause and unpause functions
     function pause() external onlyOwner {
         _pause();
     }
@@ -120,15 +135,6 @@ contract PlayManager is Initializable, OwnableUpgradeable, PausableUpgradeable, 
         _unpause();
     }
 
-    /** ========== PRIVATE INTERNAL FUNCTIONS ========== **/
-
-    function _msgSender() internal view override(ContextUpgradeable, ERC2771ContextUpgradeable) returns (address sender) {
-        return ERC2771ContextUpgradeable._msgSender();
-    }
-
-    function _msgData() internal view override(ContextUpgradeable, ERC2771ContextUpgradeable) returns (bytes memory) {
-        return ERC2771ContextUpgradeable._msgData();
-    }
-
+    //reserve space in the contract storage for future upgrades, in case any additional storage variables are added to the contract in future upgrades.
     uint256[50] private __gap;
 }
