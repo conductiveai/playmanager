@@ -54,23 +54,23 @@ Functionality is straight-forward for v1.0.0:
 This repository is setup to use [Foundry](https://book.getfoundry.sh/getting-started/first-steps) for development, testing and deployment. Foundry is a fast and lightweight toolchain vs. Hardhat / Brownie / etc. created by the gigachads at [Paradigm](https://paradigm.xyz/).
 
     1.  Download Foundry install script
-    ```
-    curl -L https://foundry.paradigm.xyz | bash
-    ```
+```
+curl -L https://foundry.paradigm.xyz | bash
+```
     2. Install Foundry CLI
-    ```
-    foundryup
-    ```
+```
+foundryup
+```
 
 If you have issues with the install script (like I did with `libusb`), you can install and build Foundry manually:
     1. Install Rust
-    ```
-    curl https://sh.rustup.rs -sSf | sh
-    ```
+```
+curl https://sh.rustup.rs -sSf | sh
+```
     2. Use crates (Rust package manager) to build and install foundry
-    ```
-    cargo install --git https://github.com/foundry-rs/foundry foundry-cli anvil chisel --bins --locked
-    ```
+```
+cargo install --git https://github.com/foundry-rs/foundry foundry-cli anvil chisel --bins --locked
+```
 
 Next clone the repo
 ```
