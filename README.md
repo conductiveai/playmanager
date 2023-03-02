@@ -22,19 +22,19 @@ Play Manager is the smart contract companion to (Conductive Instant Play)[https:
 # 📁 Directory structure
 ```
     .
-    ├── lib (library imports)
-    │   ├── forge-std (forge standard library)
-    │   ├── openzeppelin-contracts (openzeppelin contract libs)
-    │   └── openzeppelin-upgrades (openzeppelin upgrade libs)
-    ├── out (output directory)
-    ├── src
-    │   └── PlayManager.sol (smart contract)
-    ├── test
-    │   └── PlayManager.t.sol (smart contract test file)
-    ├── foundry.toml (foundry config)
-    ├── gas-profile.txt (gas used per test function)
-    ├── remappings.txt (remappings for solc)
-    └── slither.config.json (remappings for slither)
+    ├── 📁 lib (library imports)
+    │   ├── 📁 forge-std (forge standard library)
+    │   ├── 📁 openzeppelin-contracts (openzeppelin contract libs)
+    │   └── 📁 openzeppelin-upgrades (openzeppelin upgrade libs)
+    ├── 📁 out (output directory)
+    ├── 📁 src
+    │   └── 🤖 PlayManager.sol (smart contract)
+    ├── 📁 test
+    │   └── 🧪 PlayManager.t.sol (smart contract test file)
+    ├── ⚙️ foundry.toml (foundry config)
+    ├── ⛽ gas-profile.txt (gas used per test function)
+    ├── 📝 remappings.txt (remappings for solc)
+    └── ⚙️ slither.config.json (remappings for slither)
 ```
 
 # 📝 Contract
