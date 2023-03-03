@@ -130,7 +130,15 @@ function initialize(string memory _appName, string memory _appID) initializer pu
 ### Deploying via RPC node
 Deployment is done via `forge create`:
 ```bash
-forge create --rpc-url https://mainnet.infura.io --private-key 0xd34db33fd00d src/PlayManager.sol:PlayManager --constructor-args "SuperGigaChad","3411297c-57d8-4704-8ca1-39935ebc92c9"
+$ forge create PlayManager --rpc-url https://rpc.ankr.com/polygon_mumbai --private-key 0xd34db33fd00d src/PlayManager.flattened.sol --constructor-args "SuperGigaChad" "3411297c-57d8-4704-8ca1-39935ebc92c9"
+
+[⠢] Compiling...
+[⠃] Compiling 30 files with 0.8.19
+[⠒] Solc 0.8.19 finished in 1.69s
+Compiler run successful
+Deployer: 0x1876004e862243c696806497dc05066b
+Deployed to: 0x48917efa3f514b2b988c07d09aa2f505
+Transaction hash: 0x1876004e862243c696806497dc05066b48917efa3f51
 ```
 
 (Remember the constructor above, argument 1 is app name, argument 2 is app ID)
