@@ -184,7 +184,7 @@ solc-select use 0.8.13
 
 ### Running slither
 ```bash
-slither src/PlayManager.flatten.sol
+slither src/PlayManager.flattened.sol
 ```
 Output running Slither on the PlayManager contract:
 - ![image](https://github.com/conductiveai/playmanager/blob/main/github/slither.png?raw=true)
