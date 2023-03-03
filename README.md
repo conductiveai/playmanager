@@ -115,7 +115,7 @@ The flatten command will concatenate all the imports into a single file. This is
 
 ### Generating the ABI
 ```bash
-forge inspect src/PlayManager.sol abi
+forge inspect src/PlayManager.sol:PlayManager abi > PlayManager.abi.json
 ```
 
 ### Constructor
